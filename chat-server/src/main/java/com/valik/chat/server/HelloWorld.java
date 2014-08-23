@@ -14,13 +14,14 @@ public class HelloWorld
   public static void main(String[] args)
   {
     setPort(8080);
-    get("/hello", new Route()
+    post("/hello", new Route()
     {
 
       @Override
       public Object handle(Request rqst, Response rspns)
       {
-	return "Hello, world";
+	String name = rqst.body();
+	return "Hello, " + name;
       }
     });
 
