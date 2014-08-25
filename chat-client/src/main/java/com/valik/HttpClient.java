@@ -27,6 +27,7 @@ public class HttpClient {
     public String sendData(String targetURL, String urlParameters) {
         HttpURLConnection connection = null;
         String inputLine = null;
+        String sentLine = null;
         try {
             URL url = new URL(targetURL);
             connection = (HttpURLConnection) url.openConnection();
@@ -49,19 +50,14 @@ public class HttpClient {
 
             while ((inputLine = in.readLine()) != null) {
                 System.out.println(inputLine);
+                sentLine = inputLine;
             }
             in.close();
         } catch (Exception e) {
 
             throw new RuntimeException(e);
-            //return null;
-
-        } finally {
-
-            if (connection != null) {
-                connection.disconnect();
-            }
+            
         }
-        return inputLine;
+        return sentLine;
     }
 }

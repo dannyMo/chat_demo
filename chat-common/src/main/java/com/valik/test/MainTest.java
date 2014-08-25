@@ -22,7 +22,7 @@ public class MainTest
 
     User user1 = new User();
     user1.setName("Jimmy");
-    user1.setName("Pop");
+    user1.setLastname("Pop");
 
     User user2 = new User();
     user2.setName("Alex");
